@@ -5,15 +5,16 @@ function printSingleFileAsText(evt) {
 
 function getSingleFileAsText(evt) {
     //Retrieve the first (and only!) File from the FileList object
-    let result = "";
-    let file = evt.target.files[0];
+   // let result = "";
+    let file = evt.target.files[0]; // counts files I believ
     if (file) {
         let fileReader = new FileReader();
-        fileReader.onload = function(event) {
+        fileReader.onload = function(event) {   //basically loads 
             let contents = event.target.result;
-            let words = getWords(contents);
+          let words = getWords(contents);
+             console.log(words)     // why was this needed, javascript ahhh!!!
         }
-        return fileReader.readAsText(file)
+        return fileReader.readAsText(file)      
     }
 }
 
@@ -28,5 +29,5 @@ function getWords(s) {
 }
 
 
-let fileInput = document.getElementById('fileinput');
-fileInput.addEventListener('change', getSingleFileAsText, false);
+let fileInput = document.getElementById('fileinput');   // This line returns the element that has the ID attribute with the specified value.
+fileInput.addEventListener('change', getSingleFileAsText, false);   //  
